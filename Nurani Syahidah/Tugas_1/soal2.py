@@ -25,7 +25,7 @@ def metode_bisection(f, a, b, tol, max_iter):
     return (a + b) / 2.0, iterasi
 
 # Input persamaan, interval, jumlah maksimum iterasi, dan ketelitian dari pengguna
-persamaan = input("Masukkan persamaan fungsi (contoh: 'x**2 - 2*x - 8'): ")
+persamaan = input("Masukkan persamaan fungsi (contoh: 'x**2 - 2*x - 5'): ")
 a = float(input("Masukkan batas bawah interval (a): "))
 b = float(input("Masukkan batas atas interval (b): "))
 toleransi = float(input("Masukkan ketelitian (contoh: 0.001, 3 angka dibelakang koma): "))
