@@ -1,4 +1,3 @@
-#Program metode Newton Raphson untuk menyelesaikan fungsi non-linear, hasil modifikasi dari contoh yang diberikan
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -6,7 +5,7 @@ import numpy as np
 def f(x):
     return x**2 - 2*x - 8
 
-# Turunan fungsi (ganti dengan metode numerik jika diperlukan)
+# Turunan fungsi
 def g(x):
     return 2*x - 2
 
