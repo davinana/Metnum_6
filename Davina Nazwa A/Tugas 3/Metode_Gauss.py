@@ -1,13 +1,13 @@
 import numpy as np
 
-def gaussian_partial(A, b):
+def eliminasi_gaussian_partial(A, b):
     n = A.shape[0]
-    C = np.c_[A, b.reshape(-1, 1)]
+    C = np.c_[A, b]
     flag = 0
 
     for i in range(n-1):
-        max_c, chosen_k  = 0, i
-        
+        max_c, chosen_k = 0, i
+
         for k in range(i, n):
             if np.abs(C[k, i]) > max_c:
                 max_c = np.abs(C[k, i])
@@ -28,10 +28,10 @@ def gaussian_partial(A, b):
 
     return C, flag
 
-def backsubstitution(T):
-    flag = 0
+def substitusi_mundur(T):
     n = T.shape[0]
-    X = np.zeros((n))
+    flag = 0
+    X = np.zeros(n)
     if T[n-1, n-1] == 0:
         flag = 1
     else:
@@ -46,30 +46,28 @@ def backsubstitution(T):
 
     return X, flag
 
-#input matriks A dari user
+# Input matriks A dari pengguna
 n = int(input("Masukkan ukuran matriks (n x n): "))
-A = []
+A = np.zeros((n, n))
 print(f"Masukkan elemen-elemen matriks A ({n}x{n}):")
 for i in range(n):
-    row = []
     for j in range(n):
         elem = float(input(f"A[{i+1}][{j+1}]: "))
-        row.append(elem)
-    A.append(row)
+        A[i, j] = elem
 
-#input matriks b dari user
-b = []
+# Input matriks b dari pengguna
+b = np.zeros((n, 1))
 print("Masukkan elemen-elemen matriks B:")
 for i in range(n):
     elem = float(input(f"B[{i+1}]: "))
-    b.append([elem])
+    b[i, 0] = elem
 
-T, err = gaussian_partial(np.array(A), np.array(b))
+T, err = eliminasi_gaussian_partial(A, b)
 
 if err:
     print('Solusi tidak unik')
 else:
-    X, err = backsubstitution(T)
+    X, err = substitusi_mundur(T)
     if err:
         print('Solusi tidak unik')
     else:
