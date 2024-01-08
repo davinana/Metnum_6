@@ -1,5 +1,5 @@
 '''
-nurani syahidah - 2200462
+Davina Nazwa Aulia (2205946)
 Pendidikan Ilmu Komputer A 2022
 '''
 import numpy as np
